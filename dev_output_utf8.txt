@@ -1,0 +1,60 @@
+﻿
+> aadi.is-a.dev@1.2.0 dev
+> next dev
+
+node.exe :  ΓÜá 
+Warning: Next.js 
+inferred your 
+workspace root, but it 
+may not be correct.
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: ( ΓÜá Warning:   
+  N...not be correc    
+t.:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+ We detected multiple 
+lockfiles and selected 
+the directory of C:\Use
+rs\Admin\package-lock.j
+son as the root 
+directory.
+ To silence this 
+warning, set `outputFil
+eTracingRoot` in your 
+Next.js config, or 
+consider removing one 
+of the lockfiles if 
+it's not needed.
+   See https://nextjs.o
+rg/docs/app/api-referen
+ce/config/next-config-j
+s/output#caveats for 
+more information.
+ Detected additional 
+lockfiles: 
+   * C:\Users\Admin\One
+Drive\Desktop\My-Portfo
+lio-main\package-lock.j
+son
+
+   Γû▓ Next.js 15.5.9
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.15.1:3000
+
+ Γ£ô Starting...
+ Γ£ô Ready in 4.2s
