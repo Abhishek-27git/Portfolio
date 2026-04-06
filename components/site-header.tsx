@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { Download } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
 import { Button } from "./ui/button";
@@ -39,7 +40,7 @@ export function SiteHeader() {
   }) : "00:00:00";
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
       <div className="container-wrapper">
         <div className="container flex h-13 items-center justify-between">
           <div className="flex flex-1 items-center justify-start">
@@ -76,6 +77,22 @@ export function SiteHeader() {
                 <div>
                   <ModeSwitcher className="h-[18px] w-[18px]" />
                 </div>
+              </Button>
+
+              {/* Get Resume */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-9 w-9 rounded-full transition-all hover:scale-105 hover:bg-muted"
+                asChild
+              >
+                <Link
+                  href={siteConfig.links.resume}
+                  target="_blank"
+                >
+                  <Download className="h-[18px] w-[18px]" />
+                  <span className="sr-only">Get Resume</span>
+                </Link>
               </Button>
 
               {/* GitHub */}

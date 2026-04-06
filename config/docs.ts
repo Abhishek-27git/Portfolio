@@ -2,23 +2,27 @@ export const docsConfig = {
   mainNav: [
     {
       title: 'Profile',
-      href: '/',
+      href: '/#hero',
     },
     {
-      title: 'Projects',
-      href: '/projects',
-    },
-    {
-      title: 'Skills & Tools',
-      href: '/skills-tools',
+      title: 'About',
+      href: '/#about',
     },
     {
       title: 'Education',
-      href: '/education',
+      href: '/#education',
+    },
+    {
+      title: 'Projects',
+      href: '/#projects',
+    },
+    {
+      title: 'Skills',
+      href: '/#skills',
     },
     {
       title: 'Contact',
-      href: '/contact',
+      href: '/#contact',
     },
   ],
   sidebarNav: [],

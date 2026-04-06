@@ -7,8 +7,8 @@ function PageHeader({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <FadeInStagger className={cn("container pt-0 pb-4 md:pt-0 md:pb-6 lg:pt-0 lg:pb-8", className)} {...props}>
-      <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center">
+    <FadeInStagger className={cn("w-full pt-0 pb-4 md:pt-0 md:pb-6 lg:pt-0 lg:pb-8", className)} {...props}>
+      <div className="flex w-full flex-col items-start gap-4 text-left">
         {children}
       </div>
     </FadeInStagger>
@@ -40,7 +40,7 @@ function PageHeaderDescription({
     <FadeIn>
       <p
         className={cn(
-          "max-w-[750px] text-center text-base font-light text-muted-foreground sm:text-lg sm:leading-8",
+          "max-w-[750px] text-left text-base font-light text-muted-foreground sm:text-lg sm:leading-8",
           className
         )}
         {...props}
@@ -57,7 +57,7 @@ function PageActions({
     <FadeIn className="w-full">
       <div
         className={cn(
-          "flex w-full items-center justify-center gap-4 py-4",
+          "flex w-full items-center justify-start gap-4 py-4",
           className
         )}
         {...props}

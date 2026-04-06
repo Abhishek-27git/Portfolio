@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import Link, { LinkProps } from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-import { X } from "lucide-react";
+import { X, Download } from "lucide-react";
 
 import { docsConfig } from "@/config/docs";
 import { cn } from "@/lib/utils";
@@ -15,11 +15,14 @@ import { ModeSwitcher } from "./mode-switcher";
 import { siteConfig } from "@/config/site";
 import { Icons } from "./icons";
 
+import { useScrollSpy } from "@/hooks/use-scroll-spy";
+
 export function MobileNav() {
-  const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
   const [time, setTime] = React.useState(new Date());
   const { setMetaColor, metaColor } = useMetaColor();
+  const sectionIds = ['hero', 'about', 'education', 'projects', 'skills', 'contact'];
+  const activeSection = useScrollSpy(sectionIds, 200);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -82,6 +85,14 @@ export function MobileNav() {
                 <span className="text-xs font-medium tabular-nums">{formattedTime}</span>
               </div>
 
+              {/* Get Resume */}
+              <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full" asChild>
+                <Link href={siteConfig.links.resume} target="_blank" rel="noreferrer">
+                  <Download className="h-4 w-4" />
+                  <span className="sr-only">Get Resume</span>
+                </Link>
+              </Button>
+
               <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full" asChild>
                 <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
                   <Icons.gitHub className="h-4 w-4" />
@@ -114,48 +125,34 @@ export function MobileNav() {
           {/* Main Content - Scrollable */}
           <div className="flex-1 overflow-y-auto px-5 py-4">
             <div className="space-y-6">
-              {/* Primary Nav */}
-              <div className="space-y-1">
-                <MobileLink
-                  href="/"
-                  onOpenChange={setOpen}
-                  className={cn(
-                    "group flex items-center justify-between rounded-xl border px-4 py-3 text-[15px] transition-all",
-                    pathname === "/"
-                      ? "border-border bg-muted/50 text-foreground font-medium"
-                      : "border-border/40 bg-muted/30 text-muted-foreground hover:border-border hover:bg-muted/50 hover:text-foreground"
-                  )}
-                >
-                  <span className="font-medium">Home</span>
-                  <svg className={cn("h-4 w-4 transition-transform group-hover:translate-x-0.5", pathname === "/" ? "text-foreground" : "text-muted-foreground")} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </MobileLink>
-              </div>
 
               {/* All Sections - Modern Cards */}
-              {/* All Sections - Modern Cards */}
               <div className="space-y-1">
-                {docsConfig.mainNav.map((item) => (
-                  <MobileLink
-                    key={item.href}
-                    href={item.href}
-                    onOpenChange={setOpen}
-                    className={cn(
-                      "group flex items-center justify-between rounded-lg border px-3 py-2.5 text-[15px] transition-all",
-                      pathname === item.href
-                        ? "border-border/60 bg-muted/40 text-foreground font-medium"
-                        : "border-border/30 bg-background/50 text-muted-foreground hover:border-border/60 hover:bg-muted/30 hover:text-foreground"
-                    )}
-                  >
-                    <span className="font-medium">{item.title}</span>
-                    <div className="flex items-center gap-2">
-                      <svg className={cn("h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5", pathname === item.href ? "text-foreground" : "text-muted-foreground")} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </MobileLink>
-                ))}
+                {docsConfig.mainNav.map((item) => {
+                  const itemSection = item.href.replace('/#', '');
+                  const isActive = activeSection === itemSection || (activeSection === 'hero' && item.href === '/#hero');
+                  
+                  return (
+                    <MobileLink
+                      key={item.href}
+                      href={item.href}
+                      onOpenChange={setOpen}
+                      className={cn(
+                        "group flex items-center justify-between rounded-lg border px-3 py-2.5 text-[15px] transition-all",
+                        isActive
+                          ? "border-border/60 bg-muted/40 text-foreground font-medium"
+                          : "border-border/30 bg-background/50 text-muted-foreground hover:border-border/60 hover:bg-muted/30 hover:text-foreground"
+                      )}
+                    >
+                      <span className="font-medium">{item.title}</span>
+                      <div className="flex items-center gap-2">
+                        <svg className={cn("h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5", isActive ? "text-foreground" : "text-muted-foreground")} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </MobileLink>
+                  );
+                })}
               </div>
             </div>
           </div>

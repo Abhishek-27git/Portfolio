@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@/components/theme-provider';
 import { META_THEME_COLORS, siteConfig } from '@/config/site';
 import { LenisProvider } from '@/components/providers/lenis-provider';
+import DottedBackground from '@/components/dotted-background';
 import 'lenis/dist/lenis.css';
 
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -13,8 +14,6 @@ import { Metadata, Viewport } from 'next';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { SiteHeader } from '@/components/site-header';
-import { SiteFooter } from '@/components/site-footer';
-
 
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
@@ -91,8 +90,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableColorScheme
           >
             <LenisProvider>
-              <div vaul-drawer-wrapper="">
-                <div className="relative flex flex-col min-h-svh bg-background">
+              <DottedBackground />
+              <div vaul-drawer-wrapper="" className="relative z-10">
+                <div className="relative flex flex-col min-h-svh">
                   <div
                     data-wrapper=""
                     className="flex flex-col flex-1 border-grid"
@@ -107,7 +107,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
                         </div>
                       </div>
                     </main>
-                    <SiteFooter />
                   </div>
                 </div>
               </div>
