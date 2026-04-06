@@ -9,7 +9,6 @@ export function ProjectsSection() {
         <div>
           <h2 className="text-4xl font-extrabold tracking-tighter">Selected Works</h2>
         </div>
-        <div className="h-px flex-grow mx-8 bg-surface-container hidden md:block"></div>
         <span className="text-sm font-bold text-outline uppercase tracking-widest block mt-4 md:mt-0">Projects Showcase</span>
       </div>
 
