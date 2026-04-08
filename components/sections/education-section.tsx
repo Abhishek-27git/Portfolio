@@ -14,7 +14,7 @@ export function EducationSection() {
             Education
           </PageHeaderHeading>
           <h2 className="text-xl md:text-2xl font-medium text-foreground/80 mt-2">
-            Education builds the foundation, experience builds the structure. 
+            Education builds the foundation, experience builds the structure.
           </h2>
         </PageHeader>
       </div>

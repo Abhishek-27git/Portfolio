@@ -15,7 +15,7 @@ export function ProjectsSection() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
         {projects.map((project, index) => {
           const type = index % 3;
-          
+
           if (type === 2) {
             // Span 12 - Wide Layout
             return (
