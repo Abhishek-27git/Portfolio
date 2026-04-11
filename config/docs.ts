@@ -5,10 +5,6 @@ export const docsConfig = {
       href: '/#hero',
     },
     {
-      title: 'About',
-      href: '/#about',
-    },
-    {
       title: 'Education',
       href: '/#education',
     },

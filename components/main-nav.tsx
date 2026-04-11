@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 
 export function MainNav() {
-  const sectionIds = ['hero', 'about', 'education', 'projects', 'skills', 'contact'];
+  const sectionIds = ['hero', 'education', 'projects', 'skills', 'contact'];
   const activeSection = useScrollSpy(sectionIds, 200);
 
   return (
