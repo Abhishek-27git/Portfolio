@@ -9,7 +9,7 @@ const ProfilePage = async () => {
     <div className="flex flex-col w-full">
       <section id="hero" className="flex flex-col items-start justify-start w-full mb-24">
         {/* UPPER PART - Visible on load */}
-        <div className="editorial-grid w-full min-h-[85vh] content-center">
+        <div className="editorial-grid w-full min-h-[85vh] content-center pb-20 md:pb-32">
           <div className="col-span-12">
             <h1 className="text-[clamp(3rem,8vw,5.5rem)] leading-[0.9] font-extrabold tracking-tighter uppercase mb-8">
               Abhishek Singh.

@@ -109,7 +109,7 @@ const ContactForm = () => {
       <div className="space-y-4">
         <Button
           type="submit"
-          className="w-full px-8 py-6 cursor-pointer"
+          className="w-full px-8 py-6 cursor-pointer bg-zinc-900 text-zinc-50 hover:bg-zinc-800 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 transition-colors duration-300"
           size="lg"
           variant="default"
           disabled={isPending}

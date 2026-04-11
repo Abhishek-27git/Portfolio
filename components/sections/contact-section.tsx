@@ -15,7 +15,7 @@ export function ContactSection() {
         <div className="pb-8">
           <a
             href="mailto:singhabhi2705@gmail.com"
-            className="text-2xl font-bold border-b-2 border-primary pb-2 hover:text-primary transition-colors"
+            className="text-2xl font-bold border-b-2 border-zinc-900 dark:border-zinc-100 pb-1 text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 hover:border-zinc-600 dark:hover:border-zinc-400 transition-colors duration-300"
           >
             singhabhi2705@gmail.com
           </a>
