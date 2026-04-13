@@ -48,3 +48,36 @@ pnpm-lock.yaml
 package-lock.json
 yarn.lock
 bun.lock
+
+# ===== Junk / System files =====
+
+# Webex trace files
+*.wbt
+
+# Windows temp files
+*.tmp
+
+# Log files
+*.log
+
+# DLL files
+*.dll
+
+# CPU profiles
+*.cpuprofile
+*.cpuprofile.json
+
+# Session files
+*.ses
+
+# Adobe logs
+AdobeARM*.log
+
+# UUID-named temp files
+[0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]-*.tmp
+
+# Misc system files
+Setup Log*
+StructuredQuery.log
+mat-debug-*.log
+cv_debug.log

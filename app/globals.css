@@ -275,32 +275,131 @@ p {
   @apply leading-[1.65rem] [&:not(:first-child)]:mt-6;
 }
 
-/* Avatar animations for hero section */
-@keyframes float {
-  0% {
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    transform: translateY(-8px) scale(1.02);
-  }
-  100% {
-    transform: translateY(0px) scale(1);
-  }
+/* ===== Developer Illustration Animations ===== */
+
+/* Container */
+.developer-illustration {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
 }
 
-@keyframes blink {
-  0%, 95%, 100% {
-    opacity: 1;
-  }
-  97% {
-    opacity: 0.3;
-  }
+/* Whole scene floats gently */
+.developer-illustration svg {
+  animation: devFloat 5s ease-in-out infinite;
 }
 
-.avatar-animate {
-  animation: float 4s ease-in-out infinite;
+@keyframes devFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-.avatar-blink {
-  animation: blink 4s infinite;
+/* Character subtle bob (offset from main float) */
+.dev-character {
+  animation: devCharBob 4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes devCharBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* Eye blink */
+.dev-blink {
+  animation: devBlink 4s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@keyframes devBlink {
+  0%, 42%, 48%, 100% { transform: scaleY(1); }
+  45% { transform: scaleY(0.05); }
+}
+
+/* Cursor blink */
+.dev-cursor {
+  animation: devCursorBlink 1s step-end infinite;
+}
+
+@keyframes devCursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Steam rising */
+.dev-steam {
+  animation: devSteam 3s ease-in-out infinite;
+}
+
+@keyframes devSteam {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-6px); opacity: 0.2; }
+}
+
+/* Lamp glow pulse */
+.dev-glow {
+  animation: devGlow 3s ease-in-out infinite;
+}
+
+@keyframes devGlow {
+  0%, 100% { opacity: 0.3; r: 10; }
+  50% { opacity: 0.6; r: 12; }
+}
+
+/* Sparkle twinkle */
+.dev-sparkle {
+  animation: devSparkle 3s ease-in-out infinite;
+}
+
+@keyframes devSparkle {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50% { opacity: 0.3; transform: scale(0.7) rotate(15deg); }
+}
+
+/* Code lines shimmer */
+.dev-screen-code {
+  animation: devCodeShimmer 4s ease-in-out infinite;
+}
+
+@keyframes devCodeShimmer {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.9; }
+}
+
+/* Lamp subtle sway */
+.dev-lamp {
+  animation: devLampSway 6s ease-in-out infinite;
+  transform-origin: 380px 330px;
+}
+
+@keyframes devLampSway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
+/* Mug wobble */
+.dev-mug {
+  animation: devMugWobble 5s ease-in-out infinite;
+  transform-origin: 331px 330px;
+}
+
+@keyframes devMugWobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.5deg); }
+  75% { transform: rotate(-0.5deg); }
+}
+
+/* Dark mode: invert background circle */
+.dark .dark-fill-bg {
+  fill: #252525;
+}
+
+/* Dark mode: adjust face skin tone */
+.dark .dev-character ellipse[fill="#f5e6d3"] {
+  fill: #e0d0bb;
+}
+
+/* Dark mode: darken desk */
+.dark .dev-desk rect {
+  opacity: 0.8;
 }
