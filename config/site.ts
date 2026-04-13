@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: 'abhisheksingh.in',
-  url: 'https://abhisheksingh.in',
+  name: 'abhisheksingh',
+  url: 'https://abhisheksingh',
   description: 'Portfolio of Abhishek Singh, Full-Stack Developer & DevOps Engineer.',
   keywords: [
     'Abhishek Singh',
@@ -13,7 +13,7 @@ export const siteConfig = {
     'React Developer',
     'Node.js Developer',
     'Abhishek Singh Projects',
-    'Abhishek Singh Skills',
+    'Abhishek Singh Skills',  
     'Abhishek Singh Education',
     'Abhishek Singh Contact',
     'Abhishek Singh Resume',

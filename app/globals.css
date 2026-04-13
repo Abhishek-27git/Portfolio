@@ -274,3 +274,33 @@ h6 {
 p {
   @apply leading-[1.65rem] [&:not(:first-child)]:mt-6;
 }
+
+/* Avatar animations for hero section */
+@keyframes float {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes blink {
+  0%, 95%, 100% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 0.3;
+  }
+}
+
+.avatar-animate {
+  animation: float 4s ease-in-out infinite;
+}
+
+.avatar-blink {
+  animation: blink 4s infinite;
+}
