@@ -26,13 +26,9 @@ export function SkillsSection() {
             Skills
           </PageHeaderHeading>
           <h2 className="text-xl md:text-2xl font-medium text-foreground/80 mt-2">
-            Learned by coding all night and debugging all day!
-          </h2>
+Learning by building, refining through debugging.          </h2>
           <PageHeaderDescription>
-            As a full-stack Software Engineer, I specialize in building scalable
-            web applications using modern technologies such as Next.js, React, and
-            Tailwind CSS. I'm also expanding my expertise into DevOps and cloud
-            practices to create efficient, maintainable, robust web solutions.
+           As a full-stack Software Engineer, I build scalable and user-focused web applications using modern technologies like Next.js, React. I’m also expanding into DevOps and cloud practices to streamline development workflows and deliver reliable, high-performance solutions.
           </PageHeaderDescription>
         </PageHeader>
       </div>
