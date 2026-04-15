@@ -290,8 +290,15 @@ p {
 }
 
 @keyframes devFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 /* Character subtle bob (offset from main float) */
@@ -301,8 +308,15 @@ p {
 }
 
 @keyframes devCharBob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-3px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
 }
 
 /* Eye blink */
@@ -312,8 +326,17 @@ p {
 }
 
 @keyframes devBlink {
-  0%, 42%, 48%, 100% { transform: scaleY(1); }
-  45% { transform: scaleY(0.05); }
+
+  0%,
+  42%,
+  48%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  45% {
+    transform: scaleY(0.05);
+  }
 }
 
 /* Cursor blink */
@@ -322,8 +345,16 @@ p {
 }
 
 @keyframes devCursorBlink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* Steam rising */
@@ -332,8 +363,17 @@ p {
 }
 
 @keyframes devSteam {
-  0%, 100% { transform: translateY(0); opacity: 0.5; }
-  50% { transform: translateY(-6px); opacity: 0.2; }
+
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translateY(-6px);
+    opacity: 0.2;
+  }
 }
 
 /* Lamp glow pulse */
@@ -342,8 +382,17 @@ p {
 }
 
 @keyframes devGlow {
-  0%, 100% { opacity: 0.3; r: 10; }
-  50% { opacity: 0.6; r: 12; }
+
+  0%,
+  100% {
+    opacity: 0.3;
+    r: 10;
+  }
+
+  50% {
+    opacity: 0.6;
+    r: 12;
+  }
 }
 
 /* Sparkle twinkle */
@@ -352,8 +401,17 @@ p {
 }
 
 @keyframes devSparkle {
-  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
-  50% { opacity: 0.3; transform: scale(0.7) rotate(15deg); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(0.7) rotate(15deg);
+  }
 }
 
 /* Code lines shimmer */
@@ -362,8 +420,15 @@ p {
 }
 
 @keyframes devCodeShimmer {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 0.9; }
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
 }
 
 /* Lamp subtle sway */
@@ -373,8 +438,15 @@ p {
 }
 
 @keyframes devLampSway {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(1.5deg); }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(1.5deg);
+  }
 }
 
 /* Mug wobble */
@@ -384,9 +456,19 @@ p {
 }
 
 @keyframes devMugWobble {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(0.5deg); }
-  75% { transform: rotate(-0.5deg); }
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(0.5deg);
+  }
+
+  75% {
+    transform: rotate(-0.5deg);
+  }
 }
 
 /* Dark mode: invert background circle */

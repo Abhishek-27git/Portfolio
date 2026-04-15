@@ -26,15 +26,13 @@ const ProfilePage = async () => {
         {/* LOWER PART - Visible after scrolling */}
         <div className="editorial-grid w-full pt-16">
           <div className="col-span-12 md:col-span-4 mb-8 md:mb-0 md:self-start md:sticky md:top-24">
-            <h2 className="text-sm font-black uppercase tracking-widest text-zinc-500 dark:text-zinc-400">The Narrative</h2>
+            <h2 className="text-sm font-black uppercase tracking-widest text-zinc-500 dark:text-zinc-400">Professional Overview</h2>
           </div>
           <div className="col-span-12 md:col-span-7 md:col-start-6">
             <p className="text-xl md:text-2xl text-zinc-800 dark:text-zinc-100 leading-relaxed mb-8 font-light">
-              I am a passionate Software Engineer with a knack for building full-stack web applications using modern technologies like Next.js and Tailwind CSS.
-            </p>
+I am a software developer with a focus on MERN stack development, UI/UX design, and cloud technologies, currently exploring DevOps practices.            </p>
             <p className="text-xl md:text-2xl text-zinc-800 dark:text-zinc-100 leading-relaxed mb-8 font-light">
-              With a strong foundation in JavaScript frameworks, I focus on creating scalable, efficient, and visually appealing applications. Beyond coding, I thrive in collaborative environments and enjoy tackling challenging problems with creative solutions.
-            </p>
+I enjoy building clean, user-friendly applications while working on improving scalability and deployment workflows. I’m continuously learning and refining my skills to create efficient and reliable solutions.            </p>
           </div>
         </div>
       </section>
