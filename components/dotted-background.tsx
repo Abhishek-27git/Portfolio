@@ -30,7 +30,7 @@ export default function DottedBackground() {
       className="pointer-events-none fixed inset-0 z-[100] transition-opacity duration-300"
       style={{ 
         backgroundImage: `radial-gradient(${dotColor} 1px, transparent 1px)`,
-        backgroundSize: '24px 24px',
+        backgroundSize: '14px 14px',
         WebkitMaskImage: `radial-gradient(250px circle at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`,
         maskImage: `radial-gradient(250px circle at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`
       }}

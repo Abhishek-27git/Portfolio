@@ -15,7 +15,7 @@ export const education: TimelineViewerData[] = [
   },
   {
     title: 'Secondary Education ·S.M’s English Medium School, Karad',
-    date: 'Apr 2012 – Mar 2021',
+    date: 'Apr 2010 – Mar 2021',
     description: `Achieved 82% in 10th grade with a strong interest in computer applications.
 `,
   },
