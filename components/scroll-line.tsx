@@ -138,8 +138,6 @@ export function ScrollLine() {
   }, [nodePositions]);
 
   // Convert node positions from document-fraction to line-percentage
-  const lineHeight = containerRef.current?.clientHeight || 0;
-
   return (
     <div
       ref={containerRef}

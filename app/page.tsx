@@ -1,38 +1,50 @@
 
-import { DeveloperIllustration } from '@/components/developer-illustration';
+import Image from 'next/image';
+import { BadgeCheck } from 'lucide-react';
 import { EducationSection } from '@/components/sections/education-section';
 import { ProjectsSection } from '@/components/sections/projects-section';
 import { ContactSection } from '@/components/sections/contact-section';
 import { SkillsSection } from '@/components/sections/skills-section';
+
 const ProfilePage = async () => {
   return (
     <div className="flex flex-col w-full">
-      <section id="hero" className="flex flex-col items-start justify-start w-full mb-24">
-        {/* UPPER PART - Visible on load */}
-        <div className="editorial-grid w-full min-h-[85vh] content-center items-center pb-20 md:pb-32">
-          <div className="col-span-12 md:col-span-7">
-            <h1 className="text-[clamp(3rem,8vw,5.5rem)] leading-[0.9] font-extrabold tracking-tighter uppercase mb-8">
-              Abhishek Singh.
-            </h1>
-            <p className="text-2xl md:text-3xl font-light text-muted-foreground max-w-2xl leading-snug">
-              A <strong className="font-semibold text-foreground">coder by day</strong>, problem-solver by night! Crafting high-performance digital experiences with precision.
-            </p>
+      <section id="hero" className="flex flex-col items-start justify-start w-full pt-8 pb-16 md:pt-12 md:pb-24">
+        <div className="max-w-[740px] w-full flex flex-col items-start text-left">
+          {/* Avatar Section */}
+          <div className="relative mb-4">
+            <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-3xl overflow-hidden bg-muted">
+              <Image
+                src="/abhishek-avatar.png"
+                alt="Abhishek Singh"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
           </div>
-          <div className="col-span-12 md:col-span-5 flex items-center justify-center">
-            <DeveloperIllustration className="w-full max-w-[350px] md:max-w-[450px]" />
-          </div>
-        </div>
 
-        {/* LOWER PART - Visible after scrolling */}
-        <div className="editorial-grid w-full pt-16">
-          <div className="col-span-12 md:col-span-4 mb-8 md:mb-0 md:self-start md:sticky md:top-24">
-            <h2 className="text-sm font-black uppercase tracking-widest text-zinc-500 dark:text-zinc-400">Professional Overview</h2>
+          {/* Name Section with Verified Checkmark */}
+          <div className="flex items-center gap-2 mb-1.5">
+            <h1 className="text-[clamp(2.25rem,6vw,3rem)] font-extrabold tracking-tight text-foreground lowercase leading-none">
+              abhishek singh
+            </h1>
+            <BadgeCheck className="w-8 h-8 text-[#1d9bf0] fill-[#1d9bf0] stroke-background shrink-0" />
           </div>
-          <div className="col-span-12 md:col-span-7 md:col-start-6">
-            <p className="text-xl md:text-2xl text-zinc-800 dark:text-zinc-100 leading-relaxed mb-8 font-light">
-I am a software developer with a focus on MERN stack development, UI/UX design, and cloud technologies, currently exploring DevOps practices.            </p>
-            <p className="text-xl md:text-2xl text-zinc-800 dark:text-zinc-100 leading-relaxed mb-8 font-light">
-I enjoy building clean, user-friendly applications while working on improving scalability and deployment workflows. I’m continuously learning and refining my skills to create efficient and reliable solutions.            </p>
+
+          {/* Role/Subtitle */}
+          <p className="text-[clamp(1.125rem,3vw,1.375rem)] font-normal text-muted-foreground mb-5 tracking-normal lowercase leading-none">
+            full-stack developer & RAG engineer
+          </p>
+
+          {/* Bio/Description paragraphs */}
+          <div className="space-y-6 max-w-[740px] text-left">
+            <p className="text-[clamp(16px,2vw,18px)] font-normal leading-8 tracking-normal text-zinc-500 dark:text-zinc-400 mt-0!">
+              hey, i'm Abhishek, a software developer. i build scalable web applications with React and Node.js, and design AI-powered solutions as a RAG engineer.
+            </p>
+            <p className="text-[clamp(16px,2vw,18px)] font-normal leading-8 tracking-normal text-zinc-500 dark:text-zinc-400 mt-0!">
+              currently specializing in MERN stack development, UI/UX design, and cloud technologies, while exploring DevOps practices. i enjoy building clean, user-friendly applications while working on improving scalability and deployment workflows. i’m continuously learning and refining my skills to create efficient and reliable solutions.
+            </p>
           </div>
         </div>
       </section>
@@ -45,4 +57,5 @@ I enjoy building clean, user-friendly applications while working on improving sc
     </div>
   );
 };
+
 export default ProfilePage;
