@@ -12,7 +12,7 @@ const ProfilePage = async () => {
       <section id="hero" className="flex flex-col items-start justify-start w-full pt-8 pb-16 md:pt-12 md:pb-24">
         <div className="max-w-[740px] w-full flex flex-col items-start text-left">
           {/* Avatar Section */}
-          <div className="relative mb-4">
+          <div className="relative mb-3">
             <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-3xl overflow-hidden bg-muted">
               <Image
                 src="/abhishek-avatar.png"
@@ -25,16 +25,16 @@ const ProfilePage = async () => {
           </div>
 
           {/* Name Section with Verified Checkmark */}
-          <div className="flex items-center gap-2 mb-1.5">
-            <h1 className="text-[clamp(2.25rem,6vw,3rem)] font-extrabold tracking-tight text-foreground lowercase leading-none">
-              abhishek singh
+          <div className="flex items-center gap-2 mb-0.5">
+            <h1 className="text-[clamp(2.25rem,6vw,3rem)] font-extrabold tracking-tight text-foreground leading-none">
+              Abhishek Singh
             </h1>
             <BadgeCheck className="w-8 h-8 text-[#1d9bf0] fill-[#1d9bf0] stroke-background shrink-0" />
           </div>
 
           {/* Role/Subtitle */}
-          <p className="text-[clamp(1.125rem,3vw,1.375rem)] font-normal text-muted-foreground mb-5 tracking-normal lowercase leading-none">
-            full-stack developer & RAG engineer
+          <p className="text-[clamp(16px,2vw,18px)] font-normal leading-8 tracking-normal text-zinc-500 dark:text-zinc-400 mb-4 lowercase">
+            full stack engineer and rag engineer
           </p>
 
           {/* Bio/Description paragraphs */}
@@ -50,9 +50,9 @@ const ProfilePage = async () => {
       </section>
 
       {/* Stacked Sections */}
-      <EducationSection />
-      <ProjectsSection />
       <SkillsSection />
+      <ProjectsSection />
+      <EducationSection />
       <ContactSection />
     </div>
   );

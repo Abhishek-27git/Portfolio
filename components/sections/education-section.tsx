@@ -10,7 +10,7 @@ export function EducationSection() {
     <section id="education" className="flex flex-col md:flex-row md:items-start md:gap-12 gap-8 w-full py-16 md:py-24">
       <div className="md:w-2/5 lg:w-1/3 shrink-0 md:sticky md:top-24">
         <PageHeader className="pb-0 md:pb-0 lg:pb-0">
-          <PageHeaderHeading className="text-foreground drop-shadow-sm pb-2">
+          <PageHeaderHeading className="text-4xl font-extrabold tracking-tighter">
             Education
           </PageHeaderHeading>
           <h2 className="text-xl md:text-2xl font-medium text-foreground/80 mt-2">

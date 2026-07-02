@@ -5,16 +5,16 @@ export const docsConfig = {
       href: '/#hero',
     },
     {
-      title: 'Education',
-      href: '/#education',
+      title: 'Skills',
+      href: '/#skills',
     },
     {
       title: 'Projects',
       href: '/#projects',
     },
     {
-      title: 'Skills',
-      href: '/#skills',
+      title: 'Education',
+      href: '/#education',
     },
     {
       title: 'Contact',
