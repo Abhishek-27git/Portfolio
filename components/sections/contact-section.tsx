@@ -2,28 +2,38 @@ import ContactForm from '@/components/ContactForm';
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-16 md:py-24 mb-16 bg-card border rounded-xl flex flex-col items-center text-center w-full">
-      <div className="flex flex-col items-center text-center max-w-4xl px-4">
-        <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-8 text-card-foreground">
-          Let&apos;s build <br className="hidden md:block" /> something great.
+    <section id="contact" className="w-full py-16 md:py-24 mb-16">
+      <div className="max-w-[640px] mx-auto px-0">
+
+        {/* Eyebrow tag */}
+        <p className="flex items-center gap-2 font-mono text-[13px] text-muted-foreground mb-12">
+          <span className="inline-block w-2 h-2 bg-[#22c55e] shrink-0" />
+          04 — contact.config.ts
+        </p>
+
+        {/* Heading */}
+        <h2 className="text-center text-[30px] font-extrabold tracking-tight leading-snug text-foreground m-0 mb-5">
+          Let&apos;s build<br />something great.
         </h2>
-        
-        <p className="text-muted-foreground mb-12 max-w-lg">
+
+        {/* Availability */}
+        <p className="text-center text-[15px] text-muted-foreground leading-[1.6] max-w-[440px] mx-auto mb-8">
           Currently available for select freelance opportunities and full-time collaborations.
         </p>
-        
-        <div className="pb-8">
+
+        {/* Email */}
+        <div className="text-center mb-12">
           <a
             href="mailto:singhabhi2705@gmail.com"
-            className="text-2xl font-bold border-b-2 border-zinc-900 dark:border-zinc-100 pb-1 text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 hover:border-zinc-600 dark:hover:border-zinc-400 transition-colors duration-300"
+            className="text-[22px] font-extrabold text-foreground border-b-2 border-foreground pb-[2px] no-underline hover:opacity-70 transition-opacity"
           >
             singhabhi2705@gmail.com
           </a>
         </div>
-      </div>
 
-      <div className="w-full max-w-2xl mt-12 px-4">
+        {/* Form */}
         <ContactForm />
+
       </div>
     </section>
   );

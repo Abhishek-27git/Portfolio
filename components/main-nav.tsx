@@ -25,7 +25,7 @@ export function MainNav() {
               className={cn(
                 "relative py-1 transition-colors hover:text-foreground",
                 isActive
-                  ? "text-foreground"
+                  ? "text-foreground font-bold"
                   : "text-muted-foreground"
               )}
             >

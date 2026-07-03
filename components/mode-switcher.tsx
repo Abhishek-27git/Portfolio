@@ -5,11 +5,10 @@ import { MoonIcon, SunIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { META_THEME_COLORS } from "@/config/site";
-import { Button } from "./ui/button";
 import { useMetaColor } from "@/hooks/use-meta-color";
 import { cn } from "@/lib/utils";
 
-export function ModeSwitcher({ className }: { className?: string }) {
+export function ModeSwitcher({ className, btnClassName }: { className?: string; btnClassName?: string }) {
   const { setTheme, resolvedTheme } = useTheme();
   const { setMetaColor } = useMetaColor();
 
@@ -23,14 +22,17 @@ export function ModeSwitcher({ className }: { className?: string }) {
   }, [resolvedTheme, setTheme, setMetaColor]);
 
   return (
-    <Button
-      variant="ghost"
-      className="w-8 h-8 px-0 group/toggle"
+    <button
+      className={cn(
+        "w-8 h-8 rounded-full flex items-center justify-center hover:bg-muted text-muted-foreground transition-colors",
+        btnClassName
+      )}
       onClick={toggleTheme}
     >
       <SunIcon className={cn("hidden [html.dark_&]:block", className)} />
       <MoonIcon className={cn("hidden [html.light_&]:block", className)} />
       <span className="sr-only">Toggle theme</span>
-    </Button>
+    </button>
   );
 }
+

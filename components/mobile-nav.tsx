@@ -107,9 +107,7 @@ export function MobileNav() {
                 </Link>
               </Button>
 
-              <Button variant="ghost" size="icon" className="h-8 w-8 rounded-full" asChild>
-                <div><ModeSwitcher className="h-4 w-4" /></div>
-              </Button>
+              <ModeSwitcher className="h-4 w-4" btnClassName="h-8 w-8 rounded-full" />
 
               <Button
                 variant="ghost"

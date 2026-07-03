@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Download } from "lucide-react";
+import { Download, Moon } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
-import { Button } from "./ui/button";
 import { ModeSwitcher } from "./mode-switcher";
 import { MainNav } from "./main-nav";
 import { MobileNav } from "./mobile-nav";
@@ -13,126 +12,93 @@ import { Icons } from "./icons";
 
 export function SiteHeader() {
   const [time, setTime] = useState(new Date());
-
-  // Update time every second
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTime(new Date());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
   }, []);
 
-  // Format time as HH:MM:SS
-  const formattedTime = isMounted ? time.toLocaleTimeString('en-IN', {
-    timeZone: 'Asia/Kolkata',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-  }) : "00:00:00";
+  const formattedTime = isMounted
+    ? time.toLocaleTimeString("en-IN", {
+        timeZone: "Asia/Kolkata",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false,
+      })
+    : "00:00:00";
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
-      <div className="container-wrapper">
-        <div className="container flex h-13 items-center justify-between">
-          <div className="flex flex-1 items-center justify-start">
-            <MobileNav />
-          </div>
+    <>
+      {/* Green accent topline */}
+      <div className="h-[2px] w-full bg-[#22c55e] fixed top-0 left-0 z-[60]" />
 
-          <div className="flex flex-1 items-center justify-center">
-            <MainNav />
-          </div>
+      <header className="sticky top-[2px] z-50 w-full border-b border-border/50 bg-background/90 backdrop-blur-xl">
+        <div className="container-wrapper">
+          <div className="container flex h-12 items-center justify-between">
 
-          <div className="flex flex-1 items-center justify-end gap-2 md:gap-3">
-            {/* Live Clock */}
-            <div className="hidden items-center gap-2 rounded-full border border-border/40 bg-muted/30 px-3 py-1.5 backdrop-blur-sm lg:flex">
-              <div className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-foreground"></span>
-              </div>
-              <span className="text-xs font-medium tabular-nums tracking-tight text-foreground">
-                {formattedTime}
-              </span>
+            {/* LEFT — mobile hamburger + desktop nav links */}
+            <div className="flex items-center">
+              <MobileNav />
+              <MainNav />
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex items-center gap-1">
+            {/* RIGHT — clock pill + icon buttons */}
+            <div className="flex items-center gap-2">
 
+              {/* Live clock — pill with solid dot */}
+              <div className="hidden items-center gap-2 rounded-full border border-border bg-background px-3.5 py-1.5 lg:flex">
+                {/* Solid dot — no animation */}
+                <span className="h-[7px] w-[7px] rounded-full bg-foreground shrink-0" />
+                <span className="font-mono text-[13px] tabular-nums text-foreground tracking-tight">
+                  {formattedTime}
+                </span>
+              </div>
 
-              {/* Theme Toggle */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-9 w-9 rounded-full transition-all hover:scale-105 hover:bg-muted"
-                asChild
+              {/* Theme toggle */}
+              <ModeSwitcher
+                className="h-[16px] w-[16px]"
+                btnClassName="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-border bg-background text-foreground transition-colors hover:bg-muted cursor-pointer"
+              />
+
+              {/* Download resume */}
+              <Link
+                href={siteConfig.links.resume}
+                target="_blank"
+                className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-border bg-background text-foreground transition-colors hover:bg-muted cursor-pointer"
+                aria-label="Download resume"
               >
-                <div>
-                  <ModeSwitcher className="h-[18px] w-[18px]" />
-                </div>
-              </Button>
-
-              {/* Get Resume */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-9 w-9 rounded-full transition-all hover:scale-105 hover:bg-muted"
-                asChild
-              >
-                <Link
-                  href={siteConfig.links.resume}
-                  target="_blank"
-                >
-                  <Download className="h-[18px] w-[18px]" />
-                  <span className="sr-only">Get Resume</span>
-                </Link>
-              </Button>
+                <Download className="h-[16px] w-[16px]" />
+              </Link>
 
               {/* GitHub */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-9 w-9 rounded-full transition-all hover:scale-105 hover:bg-muted"
-                asChild
+              <Link
+                href={siteConfig.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] border border-border bg-background text-foreground transition-colors hover:bg-muted cursor-pointer"
+                aria-label="GitHub"
               >
-                <Link
-                  href={siteConfig.links.github}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Icons.gitHub className="h-[18px] w-[18px]" />
-                  <span className="sr-only">GitHub</span>
-                </Link>
-              </Button>
+                <Icons.gitHub className="h-[16px] w-[16px]" />
+              </Link>
 
-              {/* LinkedIn */}
-              <Button
-                variant="ghost"
-                size="icon"
-                className="h-9 w-9 rounded-full transition-all hover:scale-105 hover:bg-muted"
-                asChild
+              {/* LinkedIn — filled black square */}
+              <Link
+                href={siteConfig.links.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-[34px] w-[34px] items-center justify-center rounded-[10px] bg-foreground text-background transition-opacity hover:opacity-90 cursor-pointer"
+                aria-label="LinkedIn"
               >
-                <Link
-                  href={siteConfig.links.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Icons.linkedin className="h-[18px] w-[18px]" />
-                  <span className="sr-only">LinkedIn</span>
-                </Link>
-              </Button>
+                <Icons.linkedin className="h-[16px] w-[16px]" />
+              </Link>
+
             </div>
           </div>
         </div>
-      </div>
-
-    </header>
+      </header>
+    </>
   );
 }

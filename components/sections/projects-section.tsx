@@ -3,72 +3,124 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 export function ProjectsSection() {
+  const [featured, concept, full] = projects;
+
   return (
     <section id="projects" className="w-full py-16 md:py-24">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12">
+
+      {/* ── Header ── */}
+      <div className="flex justify-between items-end mb-8">
         <div>
-          <h2 className="text-4xl font-extrabold tracking-tighter">Selected Works</h2>
+          <p className="flex items-center gap-2 font-mono text-[13px] text-muted-foreground mb-3.5">
+            <span className="inline-block w-2 h-2 bg-[#22c55e] shrink-0" />
+            03 — projects.config.ts
+          </p>
+          <h2 className="text-[30px] font-extrabold tracking-tight text-foreground m-0">
+            Selected work
+          </h2>
         </div>
-        <span className="text-sm font-bold text-outline uppercase tracking-widest block mt-4 md:mt-0">Projects Showcase</span>
+        <span className="font-mono text-[11px] tracking-[0.08em] text-muted-foreground uppercase hidden sm:block">
+          Projects showcase
+        </span>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-        {projects.map((project, index) => {
-          const type = index % 3;
+      {/* ── Grid ── */}
+      <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr] gap-6">
 
-          if (type === 2) {
-            // Span 12 - Wide Layout
-            return (
-              <div key={index} className="md:col-span-12 group relative overflow-hidden rounded-xl bg-zinc-50 dark:bg-[#141414] transition-all hover:scale-[1.01] border border-zinc-200 dark:border-white/5">
-                <div className="editorial-grid items-center">
-                  <div className="col-span-12 md:col-span-7 bg-zinc-100 dark:bg-[#1a1a1a] aspect-video overflow-hidden flex items-center justify-center p-8 relative">
-                    {/* Dot pattern overlay */}
-                    <div className="absolute inset-0 opacity-20 dark:opacity-30"
-                      style={{backgroundImage: 'radial-gradient(circle, #888 1px, transparent 1px)', backgroundSize: '20px 20px'}}
-                    />
-                    <span className="relative text-xl font-bold text-foreground/40 dark:text-white/20 uppercase tracking-widest">{project.title}</span>
-                  </div>
-                  <div className="col-span-12 md:col-span-5 p-12">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-2 block">
-                      {project.techStack.slice(0, 2).join(' / ')}
-                    </span>
-                    <h2 className="text-3xl font-bold mb-4 leading-tight text-zinc-900 dark:text-zinc-100">{project.title}</h2>
-                    <p className="text-zinc-500 dark:text-zinc-400 mb-8 font-light line-clamp-3">
-                      {project.overview}
-                    </p>
-                    <Link href={`/projects/${project.slug}`} className="flex items-center gap-2 text-primary font-bold hover:underline">
-                      Learn More <ArrowUpRight className="size-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            );
-          }
-
-          // Span 8 or 4 Layout
-          return (
-            <div key={index} className={`${type === 0 ? 'md:col-span-8' : 'md:col-span-4'} group relative overflow-hidden rounded-xl bg-zinc-50 dark:bg-[#141414] transition-all hover:scale-[1.01] border border-zinc-200 dark:border-white/5 flex flex-col`}>
-              <div className={`${type === 0 ? 'aspect-[16/9]' : 'aspect-[4/5]'} w-full bg-zinc-100 dark:bg-[#1a1a1a] overflow-hidden flex items-center justify-center p-8 relative`}>
-                {/* Dot pattern overlay */}
-                <div className="absolute inset-0 opacity-20 dark:opacity-25"
-                  style={{backgroundImage: 'radial-gradient(circle, #888 1px, transparent 1px)', backgroundSize: '18px 18px'}}
-                />
-                <span className="relative text-xl font-bold text-foreground/40 dark:text-white/20 uppercase tracking-widest text-center">{project.title}</span>
-              </div>
-              <div className="p-6 flex justify-between items-start flex-grow">
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary mb-2 block">
-                    {project.techStack.slice(0, 1).join('')} / {type === 0 ? 'Featured' : 'Concept'}
-                  </span>
-                  <h3 className="text-2xl font-bold line-clamp-2 text-zinc-900 dark:text-zinc-100">{project.title}</h3>
-                </div>
-                <Link href={`/projects/${project.slug}`}>
-                  <ArrowUpRight className="text-zinc-400 group-hover:text-primary transition-colors size-6 mt-1" />
-                </Link>
-              </div>
+        {/* Card 1 — featured (tall left) */}
+        {featured && (
+          <div className="group flex flex-col rounded-[14px] overflow-hidden border border-zinc-200 dark:border-white/8 bg-white dark:bg-[#141414] transition-all hover:scale-[1.01] hover:shadow-lg">
+            {/* thumb */}
+            <div className="flex-1 min-h-[260px] bg-zinc-100 dark:bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden">
+              <div
+                className="absolute inset-0 opacity-20 dark:opacity-25"
+                style={{ backgroundImage: 'radial-gradient(circle, #888 1px, transparent 1px)', backgroundSize: '20px 20px' }}
+              />
+              <span className="relative font-mono text-[12px] tracking-[0.08em] text-muted-foreground uppercase">
+                {featured.title}
+              </span>
             </div>
-          );
-        })}
+            {/* meta */}
+            <div className="flex justify-between items-start gap-3 px-5 py-4">
+              <div>
+                <p className="font-mono text-[11px] tracking-[0.04em] text-violet-600 dark:text-violet-400 uppercase m-0 mb-1.5">
+                  {featured.techStack[0]} / featured
+                </p>
+                <p className="text-[15px] font-bold text-foreground m-0">
+                  {featured.title}
+                </p>
+              </div>
+              <Link href={`/projects/${featured.slug}`} aria-label="View project" className="text-muted-foreground mt-[2px] shrink-0 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+                <ArrowUpRight className="size-[18px]" />
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* Card 2 — concept (narrow right) */}
+        {concept && (
+          <div className="group flex flex-col rounded-[14px] overflow-hidden border border-zinc-200 dark:border-white/8 bg-white dark:bg-[#141414] transition-all hover:scale-[1.01] hover:shadow-lg">
+            {/* thumb */}
+            <div className="flex-1 min-h-[260px] bg-zinc-100 dark:bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden">
+              <div
+                className="absolute inset-0 opacity-20 dark:opacity-25"
+                style={{ backgroundImage: 'radial-gradient(circle, #888 1px, transparent 1px)', backgroundSize: '20px 20px' }}
+              />
+              <span className="relative font-mono text-[12px] tracking-[0.08em] text-muted-foreground uppercase">
+                {concept.title}
+              </span>
+            </div>
+            {/* meta */}
+            <div className="flex justify-between items-start gap-3 px-5 py-4">
+              <div>
+                <p className="font-mono text-[11px] tracking-[0.04em] text-violet-600 dark:text-violet-400 uppercase m-0 mb-1.5">
+                  {concept.techStack[0]} / concept
+                </p>
+                <p className="text-[15px] font-bold text-foreground m-0">
+                  {concept.title}
+                </p>
+              </div>
+              <Link href={`/projects/${concept.slug}`} aria-label="View project" className="text-muted-foreground mt-[2px] shrink-0 hover:text-violet-600 dark:hover:text-violet-400 transition-colors">
+                <ArrowUpRight className="size-[18px]" />
+              </Link>
+            </div>
+          </div>
+        )}
+
+        {/* Card 3 — full-width split (thumb + content) */}
+        {full && (
+          <div className="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 min-h-[280px] rounded-[14px] overflow-hidden border border-zinc-200 dark:border-white/8 bg-white dark:bg-[#141414] transition-all hover:scale-[1.005] hover:shadow-lg">
+            {/* thumb */}
+            <div className="min-h-[240px] sm:min-h-[280px] bg-zinc-100 dark:bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden">
+              <div
+                className="absolute inset-0 opacity-20 dark:opacity-25"
+                style={{ backgroundImage: 'radial-gradient(circle, #888 1px, transparent 1px)', backgroundSize: '20px 20px' }}
+              />
+              <span className="relative font-mono text-[12px] tracking-[0.08em] text-muted-foreground uppercase">
+                {full.title}
+              </span>
+            </div>
+            {/* content */}
+            <div className="flex flex-col justify-center p-8">
+              <p className="font-mono text-[11px] tracking-[0.04em] text-violet-600 dark:text-violet-400 uppercase m-0 mb-2">
+                {full.techStack.slice(0, 2).join(' / ')}
+              </p>
+              <p className="text-[18px] font-bold text-foreground m-0 mb-3">
+                {full.title}
+              </p>
+              <p className="text-[14px] text-muted-foreground leading-[1.7] m-0 mb-[18px] max-w-[420px]">
+                {full.tagline}
+              </p>
+              <Link
+                href={`/projects/${full.slug}`}
+                className="inline-flex items-center gap-1 text-[13px] font-bold text-violet-600 dark:text-violet-400 hover:underline w-fit"
+              >
+                Learn more <ArrowUpRight className="size-[14px]" />
+              </Link>
+            </div>
+          </div>
+        )}
+
       </div>
     </section>
   );
